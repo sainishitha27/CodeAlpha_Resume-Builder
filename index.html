@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resume Builder</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-image: url("bckg.jpg");
+        background-size: cover;
+      }
+
+      .container {
+        display: flex;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .form-container {
+        flex: 1;
+        padding-right: 20px;
+      }
+
+      .preview-container {
+        flex: 1;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      textarea {
+        height: 150px;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+      }
+
+      .button:hover {
+        background-color: #45a049;
+      }
+    </style>
+    <script>
+      function generateResume() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        var education = document.getElementById("education").value;
+        var collegename = document.getElementById("collegename").value;
+        var year = document.getElementById("year").value;
+        var project = document.getElementById("project").value;
+       
+        var certifications = document.getElementById("certifications").value;
+
+        var preview = document.getElementById("resume-preview");
+        preview.innerHTML = `
+      <h2>Personal Information</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
+
+      <h2>Education</h2>
+      <p><strong>Degree:</strong> ${education}</p>
+      <p><strong>Collegename:</strong> ${collegename}</p>
+      <p><strong>Year:</strong> ${year}</p>
+
+      <h2>Projects</h2>
+      <p><strong>Project :</strong> ${project}</p>
+     
+
+      <h2>Certifications</h2>
+      <p>${certifications}</p>
+    `;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <h1>Resume Builder</h1>
+        <form onsubmit="event.preventDefault(); generateResume();">
+          <h2>Personal Information</h2>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email:</label>
+          <input type="text" id="email" name="email" required />
+
+          <label for="phone">Phone:</label>
+          <input type="text" id="phone" name="phone" required />
+
+          <h2>Education</h2>
+
+          <label for="collegename">Collegename:</label>
+          <input type="text" id="collegename" name="collegename" required />
+
+          <label for="education">Degree:</label>
+          <input type="text" id="education" name="education" required />
+
+         
+
+          <label for="year">Year:</label>
+          <input type="text" id="year" name="year" required />
+
+          <h2>Projects</h2>
+          <label for="project">Project :</label>
+          <textarea id="project" name="project" required></textarea>
+
+          
+
+          <h2>Certifications</h2>
+          <label for="certifications">Certifications:</label>
+          <textarea
+            id="certifications"
+            name="certifications"
+            required
+          ></textarea>
+
+          <button class="button" type="submit">Generate Resume</button>
+        </form>
+      </div>
+
+      <div class="preview-container">
+        <h1>Resume Preview</h1>
+        <div id="resume-preview"></div>
+      </div>
+    </div>
+  </body>
+</html>
